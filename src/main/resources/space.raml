@@ -1,3 +1,27 @@
 #%RAML 1.0
 title: Direct Space
-description: todo
+description: This API collects the largest combined functionality for the study of space without leaving the computer.
+
+/nasa/apod:
+  get:
+    description: Retrieve data from NASA Astronomy Picture of the Day
+    queryParameters:
+      # help desc
+      help:
+        required: false
+      # default APOD output
+      default:
+        required: false
+      # random image from the APOD using integer number = random : 10
+      random:
+        required: false
+      # if user want use his/she's own NASA api key
+      own_api_key:
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            examples:
+              output: !include api/examples/space-example.raml
